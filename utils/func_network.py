@@ -1,5 +1,13 @@
 import requests
 
+URL_DOFUS_MAP = "https://dofus-map.com/getRessourceData.php?"
+
+def make_request_dofus_map(ressourceId, groupId=0):
+    url = URL_DOFUS_MAP + "ressourceId=" + str(ressourceId) + "&groupId=" + str(groupId)
+    response = make_http_request(url)
+
+    return response
+
 def make_http_request(url):
     try:
         response = requests.get(url)
